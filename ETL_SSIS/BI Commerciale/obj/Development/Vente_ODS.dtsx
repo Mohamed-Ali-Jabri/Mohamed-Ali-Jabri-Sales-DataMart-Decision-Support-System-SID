@@ -1,0 +1,966 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/24/2025 8:14:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-Q1T925U"
+  DTS:CreatorName="DESKTOP-Q1T925U\Admin"
+  DTS:DTSID="{917356CB-3FEA-4080-8F33-B5D1CDCD04A4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package3"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{BEEFDABF-6AC7-42A7-A8E3-7054AB75C70B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{984C0162-C4A7-467C-934A-CBD4F16F8FE2}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Admin\Downloads\vente_pretraite.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{89D19E90-3908-4193-8270-D931D43AC184}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Admin\Downloads\vente_pretraite.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Chargement de la table Vente_ODS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{5ADF79F3-949E-450D-A513-29E598A9DA58}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chargement de la table Vente_ODS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Chargement de la table Vente_ODS\Vente_exel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source Excel"
+              name="Vente_exel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappage des paramètres de la commande SQL en variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de la table Vente_ODS\Vente_exel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel]"
+                  name="Sortie de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[NUMCPT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[NUMCPT]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[NUMCPT]"
+                      name="NUMCPT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[NOMCLI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[NOMCLI]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[NOMCLI]"
+                      name="NOMCLI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODPRD]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CODPRD]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODPRD]"
+                      name="CODPRD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[LIBPRD]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[LIBPRD]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[LIBPRD]"
+                      name="LIBPRD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CATPRD]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CATPRD]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CATPRD]"
+                      name="CATPRD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODEMB]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CODEMB]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODEMB]"
+                      name="CODEMB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[QTEPRD]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[QTEPRD]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[QTEPRD]"
+                      name="QTEPRD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[MNTHT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[MNTHT]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[MNTHT]"
+                      name="MNTHT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[TYPOPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[TYPOPE]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[TYPOPE]"
+                      name="TYPOPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[PERIODE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[PERIODE]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[PERIODE]"
+                      name="PERIODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODAME]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CODAME]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODAME]"
+                      name="CODAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[LIBAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[LIBAME]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[LIBAME]"
+                      name="LIBAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODDPO]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CODDPO]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODDPO]"
+                      name="CODDPO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[NOMDPO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[NOMDPO]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[NOMDPO]"
+                      name="NOMDPO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODGVR]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CODGVR]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODGVR]"
+                      name="CODGVR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[LIBGVR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[LIBGVR]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[LIBGVR]"
+                      name="LIBGVR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODLOC]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CODLOC]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODLOC]"
+                      name="CODLOC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[LIBLOC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[LIBLOC]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[LIBLOC]"
+                      name="LIBLOC"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[NUMCPT]"
+                      dataType="r8"
+                      name="NUMCPT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[NOMCLI]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMCLI" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CODPRD]"
+                      dataType="r8"
+                      name="CODPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[LIBPRD]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CATPRD]"
+                      dataType="wstr"
+                      length="255"
+                      name="CATPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CODEMB]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODEMB" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[QTEPRD]"
+                      dataType="r8"
+                      name="QTEPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[MNTHT]"
+                      dataType="r8"
+                      name="MNTHT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[TYPOPE]"
+                      dataType="wstr"
+                      length="255"
+                      name="TYPOPE" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[PERIODE]"
+                      dataType="r8"
+                      name="PERIODE" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CODAME]"
+                      dataType="r8"
+                      name="CODAME" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[LIBAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBAME" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CODDPO]"
+                      dataType="r8"
+                      name="CODDPO" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[NOMDPO]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMDPO" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CODGVR]"
+                      dataType="r8"
+                      name="CODGVR" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[LIBGVR]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBGVR" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[CODLOC]"
+                      dataType="r8"
+                      name="CODLOC" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].ExternalColumns[LIBLOC]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBLOC" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[NUMCPT]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[NUMCPT]"
+                      name="NUMCPT" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[NOMCLI]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[NOMCLI]"
+                      name="NOMCLI" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODPRD]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODPRD]"
+                      name="CODPRD" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[LIBPRD]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[LIBPRD]"
+                      name="LIBPRD" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CATPRD]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CATPRD]"
+                      name="CATPRD" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODEMB]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODEMB]"
+                      name="CODEMB" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[QTEPRD]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[QTEPRD]"
+                      name="QTEPRD" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[MNTHT]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[MNTHT]"
+                      name="MNTHT" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[TYPOPE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[TYPOPE]"
+                      name="TYPOPE" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[PERIODE]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[PERIODE]"
+                      name="PERIODE" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODAME]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODAME]"
+                      name="CODAME" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[LIBAME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[LIBAME]"
+                      name="LIBAME" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODDPO]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODDPO]"
+                      name="CODDPO" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[NOMDPO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[NOMDPO]"
+                      name="NOMDPO" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODGVR]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODGVR]"
+                      name="CODGVR" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[LIBGVR]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[LIBGVR]"
+                      name="LIBGVR" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODLOC]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODLOC]"
+                      name="CODLOC" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[LIBLOC]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[LIBLOC]"
+                      name="LIBLOC" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de la table Vente_ODS\Vente_ODS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Vente_ODS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Vente_ODS]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Connections[OleDbConnection]"
+                  connectionManagerID="{2EF0BFA0-01E9-49E4-8423-5EE29395EAD2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[NUMCPT]"
+                      cachedDataType="r8"
+                      cachedName="NUMCPT"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[NUMCPT]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[NUMCPT]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[NOMCLI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOMCLI"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[NOMCLI]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[NOMCLI]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[CODPRD]"
+                      cachedDataType="r8"
+                      cachedName="CODPRD"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODPRD]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODPRD]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[LIBPRD]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LIBPRD"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBPRD]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[LIBPRD]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[CATPRD]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CATPRD"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CATPRD]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CATPRD]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[CODEMB]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODEMB"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODEMB]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODEMB]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[QTEPRD]"
+                      cachedDataType="r8"
+                      cachedName="QTEPRD"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[QTEPRD]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[QTEPRD]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[MNTHT]"
+                      cachedDataType="r8"
+                      cachedName="MNTHT"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[MNTHT]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[MNTHT]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[TYPOPE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TYPOPE"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[TYPOPE]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[TYPOPE]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[PERIODE]"
+                      cachedDataType="r8"
+                      cachedName="PERIODE"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[PERIODE]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[PERIODE]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[CODAME]"
+                      cachedDataType="r8"
+                      cachedName="CODAME"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODAME]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODAME]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[LIBAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LIBAME"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBAME]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[LIBAME]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[CODDPO]"
+                      cachedDataType="r8"
+                      cachedName="CODDPO"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODDPO]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODDPO]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[NOMDPO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOMDPO"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[NOMDPO]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[NOMDPO]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[CODGVR]"
+                      cachedDataType="r8"
+                      cachedName="CODGVR"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODGVR]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODGVR]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[LIBGVR]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LIBGVR"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBGVR]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[LIBGVR]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[CODLOC]"
+                      cachedDataType="r8"
+                      cachedName="CODLOC"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODLOC]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[CODLOC]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].Columns[LIBLOC]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LIBLOC"
+                      externalMetadataColumnId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBLOC]"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel].Columns[LIBLOC]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[NUMCPT]"
+                      dataType="r8"
+                      name="NUMCPT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[NOMCLI]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMCLI" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODPRD]"
+                      dataType="r8"
+                      name="CODPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBPRD]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CATPRD]"
+                      dataType="wstr"
+                      length="255"
+                      name="CATPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODEMB]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODEMB" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[QTEPRD]"
+                      dataType="r8"
+                      name="QTEPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[MNTHT]"
+                      dataType="r8"
+                      name="MNTHT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[TYPOPE]"
+                      dataType="wstr"
+                      length="255"
+                      name="TYPOPE" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[PERIODE]"
+                      dataType="r8"
+                      name="PERIODE" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODAME]"
+                      dataType="r8"
+                      name="CODAME" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBAME" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODDPO]"
+                      dataType="r8"
+                      name="CODDPO" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[NOMDPO]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMDPO" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODGVR]"
+                      dataType="r8"
+                      name="CODGVR" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBGVR]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBGVR" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODLOC]"
+                      dataType="r8"
+                      name="CODLOC" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBLOC]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBLOC" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_ODS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Vente_ODS\Vente_ODS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Vente_ODS\Vente_ODS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Chargement de la table Vente_ODS.Paths[Sortie de source Excel]"
+              endId="Package\Chargement de la table Vente_ODS\Vente_ODS.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source Excel"
+              startId="Package\Chargement de la table Vente_ODS\Vente_exel.Outputs[Sortie de source Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\vider la table Vente_ODS"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{6B58F02A-EA27-4A1C-AB10-2F3FD6031C53}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="vider la table Vente_ODS"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2EF0BFA0-01E9-49E4-8423-5EE29395EAD2}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[Vente_ODS];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{E93C82C2-9BC7-4DCB-A7D9-36A2390C6F32}"
+      DTS:From="Package\vider la table Vente_ODS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\Chargement de la table Vente_ODS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="255,42"
+          Id="Package\Chargement de la table Vente_ODS"
+          TopLeft="125,165" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\vider la table Vente_ODS"
+          TopLeft="33,84" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="134.5,126">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118,39"
+              Start="0,0"
+              End="118,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="4,19.5" />
+                  <mssgle:LineSegment
+                    End="114,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="114,19.5"
+                    Point2="118,19.5"
+                    Point3="118,23.5" />
+                  <mssgle:LineSegment
+                    End="118,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Chargement de la table Vente_ODS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Chargement de la table Vente_ODS\Vente_exel"
+          TopLeft="121,106" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Chargement de la table Vente_ODS\Vente_ODS"
+          TopLeft="193,254" />
+        <EdgeLayout
+          Id="Package\Chargement de la table Vente_ODS.Paths[Sortie de source Excel]"
+          TopLeft="188,148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74,106"
+              Start="0,0"
+              End="74,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49"
+                    Point2="0,53"
+                    Point3="4,53" />
+                  <mssgle:LineSegment
+                    End="70,53" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70,53"
+                    Point2="74,53"
+                    Point3="74,57" />
+                  <mssgle:LineSegment
+                    End="74,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement de la table Vente_ODS\Vente_ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement de la table Vente_ODS\Vente_exel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

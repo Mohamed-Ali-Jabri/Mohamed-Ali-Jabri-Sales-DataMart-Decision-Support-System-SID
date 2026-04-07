@@ -1,0 +1,161 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\BI Commerciale\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|C:\\BI Commerciale\\BI Commerciale\\Fact_Vente.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|solutionrelative:BI Commerciale\\Fact_Vente.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|C:\\BI Commerciale\\BI Commerciale\\Dim_Produit.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|solutionrelative:BI Commerciale\\Dim_Produit.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|C:\\BI Commerciale\\BI Commerciale\\Dim_Date.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|solutionrelative:BI Commerciale\\Dim_Date.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|C:\\BI Commerciale\\BI Commerciale\\Produit_ODS.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|solutionrelative:BI Commerciale\\Produit_ODS.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|C:\\BI Commerciale\\BI Commerciale\\Dim_Client.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|solutionrelative:BI Commerciale\\Dim_Client.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|C:\\BI Commerciale\\BI Commerciale\\Vente_ODS.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|solutionrelative:BI Commerciale\\Vente_ODS.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|C:\\BI Commerciale\\BI Commerciale\\loc_gouvernorat_ODS.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|solutionrelative:BI Commerciale\\loc_gouvernorat_ODS.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|C:\\BI Commerciale\\BI Commerciale\\Client_ODS.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|solutionrelative:BI Commerciale\\Client_ODS.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|C:\\BI Commerciale\\BI Commerciale\\Categorie_ODS.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{08B69508-67CF-5EF2-2940-B907ECF2807E}|BI Commerciale\\BI Commerciale.dtproj|solutionrelative:BI Commerciale\\Categorie_ODS.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dim_Produit.dtsx [Conception]",
+              "DocumentMoniker": "C:\\BI Commerciale\\BI Commerciale\\Dim_Produit.dtsx",
+              "RelativeDocumentMoniker": "BI Commerciale\\Dim_Produit.dtsx",
+              "ToolTip": "C:\\BI Commerciale\\BI Commerciale\\Dim_Produit.dtsx [Conception]",
+              "RelativeToolTip": "BI Commerciale\\Dim_Produit.dtsx [Conception]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-04-25T12:54:47.347Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Produit_ODS.dtsx [Conception]",
+              "DocumentMoniker": "C:\\BI Commerciale\\BI Commerciale\\Produit_ODS.dtsx",
+              "RelativeDocumentMoniker": "BI Commerciale\\Produit_ODS.dtsx",
+              "ToolTip": "C:\\BI Commerciale\\BI Commerciale\\Produit_ODS.dtsx [Conception]",
+              "RelativeToolTip": "BI Commerciale\\Produit_ODS.dtsx [Conception]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-04-25T15:21:17.54Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dim_Client.dtsx [Conception]",
+              "DocumentMoniker": "C:\\BI Commerciale\\BI Commerciale\\Dim_Client.dtsx",
+              "RelativeDocumentMoniker": "BI Commerciale\\Dim_Client.dtsx",
+              "ToolTip": "C:\\BI Commerciale\\BI Commerciale\\Dim_Client.dtsx [Conception]",
+              "RelativeToolTip": "BI Commerciale\\Dim_Client.dtsx [Conception]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-04-25T11:13:56.544Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dim_Date.dtsx [Conception]",
+              "DocumentMoniker": "C:\\BI Commerciale\\BI Commerciale\\Dim_Date.dtsx",
+              "RelativeDocumentMoniker": "BI Commerciale\\Dim_Date.dtsx",
+              "ToolTip": "C:\\BI Commerciale\\BI Commerciale\\Dim_Date.dtsx [Conception]",
+              "RelativeToolTip": "BI Commerciale\\Dim_Date.dtsx [Conception]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-04-25T13:13:52.059Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Fact_Vente.dtsx [Conception]",
+              "DocumentMoniker": "C:\\BI Commerciale\\BI Commerciale\\Fact_Vente.dtsx",
+              "RelativeDocumentMoniker": "BI Commerciale\\Fact_Vente.dtsx",
+              "ToolTip": "C:\\BI Commerciale\\BI Commerciale\\Fact_Vente.dtsx [Conception]",
+              "RelativeToolTip": "BI Commerciale\\Fact_Vente.dtsx [Conception]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-04-25T16:25:24.798Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Vente_ODS.dtsx [Conception]",
+              "DocumentMoniker": "C:\\BI Commerciale\\BI Commerciale\\Vente_ODS.dtsx",
+              "RelativeDocumentMoniker": "BI Commerciale\\Vente_ODS.dtsx",
+              "ToolTip": "C:\\BI Commerciale\\BI Commerciale\\Vente_ODS.dtsx [Conception]",
+              "RelativeToolTip": "BI Commerciale\\Vente_ODS.dtsx [Conception]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-04-24T20:56:11.944Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "loc_gouvernorat_ODS.dtsx [Conception]",
+              "DocumentMoniker": "C:\\BI Commerciale\\BI Commerciale\\loc_gouvernorat_ODS.dtsx",
+              "RelativeDocumentMoniker": "BI Commerciale\\loc_gouvernorat_ODS.dtsx",
+              "ToolTip": "C:\\BI Commerciale\\BI Commerciale\\loc_gouvernorat_ODS.dtsx [Conception]",
+              "RelativeToolTip": "BI Commerciale\\loc_gouvernorat_ODS.dtsx [Conception]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-04-24T20:40:25.325Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Client_ODS.dtsx [Conception]",
+              "DocumentMoniker": "C:\\BI Commerciale\\BI Commerciale\\Client_ODS.dtsx",
+              "RelativeDocumentMoniker": "BI Commerciale\\Client_ODS.dtsx",
+              "ToolTip": "C:\\BI Commerciale\\BI Commerciale\\Client_ODS.dtsx [Conception]",
+              "RelativeToolTip": "BI Commerciale\\Client_ODS.dtsx [Conception]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-04-24T19:22:04.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Categorie_ODS.dtsx [Conception]",
+              "DocumentMoniker": "C:\\BI Commerciale\\BI Commerciale\\Categorie_ODS.dtsx",
+              "RelativeDocumentMoniker": "BI Commerciale\\Categorie_ODS.dtsx",
+              "ToolTip": "C:\\BI Commerciale\\BI Commerciale\\Categorie_ODS.dtsx [Conception]",
+              "RelativeToolTip": "BI Commerciale\\Categorie_ODS.dtsx [Conception]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-04-24T20:33:23.381Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

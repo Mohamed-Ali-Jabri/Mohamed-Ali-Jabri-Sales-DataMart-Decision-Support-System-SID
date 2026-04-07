@@ -1,0 +1,1224 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/25/2025 12:13:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-Q1T925U"
+  DTS:CreatorName="DESKTOP-Q1T925U\Admin"
+  DTS:DTSID="{0C87EA57-F096-4B81-BD66-695E4477904E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Dim_Client"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{761C17DF-2BAC-4D08-B5D7-97E3FE2A688D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Creation de dim_Client"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{94A2FFBC-AAB2-4EE0-9F48-0C15CD832A7B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Creation de dim_Client"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Creation de dim_Client\Client_ODS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Client_ODS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Client_ods]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creation de dim_Client\Client_ODS.Connections[OleDbConnection]"
+                  connectionManagerID="{2EF0BFA0-01E9-49E4-8423-5EE29395EAD2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[NUMCPT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NUMCPT]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[NUMCPT]"
+                      name="NUMCPT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[NOMCLI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NOMCLI]"
+                      length="255"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[NOMCLI]"
+                      name="NOMCLI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[TYPE_CLIENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[TYPE_CLIENT]"
+                      length="255"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[TYPE_CLIENT]"
+                      name="TYPE_CLIENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[SECTEUR_CLIENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[SECTEUR_CLIENT]"
+                      length="255"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[SECTEUR_CLIENT]"
+                      name="SECTEUR_CLIENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[CODGVR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODGVR]"
+                      length="255"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[CODGVR]"
+                      name="CODGVR"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NUMCPT]"
+                      dataType="i4"
+                      name="NUMCPT" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NOMCLI]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMCLI" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[TYPE_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      name="TYPE_CLIENT" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[SECTEUR_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      name="SECTEUR_CLIENT" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CONSOLIDATION_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      name="CONSOLIDATION_CLIENT" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODAME" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODGVR]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODGVR" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[SERVICE_TYPE]"
+                      dataType="wstr"
+                      length="255"
+                      name="SERVICE_TYPE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[NUMCPT]"
+                      dataType="i4"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[NUMCPT]"
+                      name="NUMCPT" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[NOMCLI]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[NOMCLI]"
+                      name="NOMCLI" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[TYPE_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[TYPE_CLIENT]"
+                      name="TYPE_CLIENT" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[SECTEUR_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[SECTEUR_CLIENT]"
+                      name="SECTEUR_CLIENT" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODGVR]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODGVR]"
+                      name="CODGVR" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Creation de dim_Client\Commande OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="Commande OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Client] SET [Gouvernorat] = ?,[Nom_Client] = ?,[Secteur_Client] = ?,[Type_Client] = ? WHERE [Num_Client] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creation de dim_Client\Commande OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{A7FD6C5B-ACDC-469C-A6E9-E8D453D606AE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[CODGVR]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODGVR"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[CODGVR]" />
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[NOMCLI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOMCLI"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[NOMCLI]" />
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[NUMCPT]"
+                      cachedDataType="i4"
+                      cachedName="NUMCPT"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[NUMCPT]" />
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[SECTEUR_CLIENT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SECTEUR_CLIENT"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[SECTEUR_CLIENT]" />
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[TYPE_CLIENT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TYPE_CLIENT"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[TYPE_CLIENT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Creation de dim_Client\Commande OLE DB.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creation de dim_Client\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creation de dim_Client\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creation de dim_Client\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Creation de dim_Client\Commande OLE DB 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="Commande OLE DB 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Client] SET [Gouvernorat] = ?,[Nom_Client] = ?,[Secteur_Client] = ?,[Type_Client] = ? WHERE [Num_Client] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creation de dim_Client\Commande OLE DB 1.Connections[OleDbConnection]"
+                  connectionManagerID="{A7FD6C5B-ACDC-469C-A6E9-E8D453D606AE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[CODGVR]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODGVR"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[CODGVR]" />
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[NOMCLI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOMCLI"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[NOMCLI]" />
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[NUMCPT]"
+                      cachedDataType="i4"
+                      cachedName="NUMCPT"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[NUMCPT]" />
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[SECTEUR_CLIENT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SECTEUR_CLIENT"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[SECTEUR_CLIENT]" />
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[TYPE_CLIENT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TYPE_CLIENT"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[TYPE_CLIENT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Creation de dim_Client\Commande OLE DB 1.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creation de dim_Client\Commande OLE DB 1.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB 1.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creation de dim_Client\Commande OLE DB 1.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Commande OLE DB 1.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creation de dim_Client\Commande OLE DB 1.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Creation de dim_Client\Dim Client"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Dim Client"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Dim_Client]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creation de dim_Client\Dim Client.Connections[OleDbConnection]"
+                  connectionManagerID="{A7FD6C5B-ACDC-469C-A6E9-E8D453D606AE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].Columns[NUMCPT]"
+                      cachedDataType="i4"
+                      cachedName="NUMCPT"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Num_Client]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[NUMCPT]" />
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].Columns[NOMCLI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOMCLI"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Nom_Client]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[NOMCLI]" />
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].Columns[TYPE_CLIENT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TYPE_CLIENT"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Type_Client]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[TYPE_CLIENT]" />
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].Columns[SECTEUR_CLIENT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SECTEUR_CLIENT"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Secteur_Client]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[SECTEUR_CLIENT]" />
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].Columns[CODGVR]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODGVR"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Gouvernorat]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[CODGVR]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_DimClinet]"
+                      dataType="i4"
+                      name="ID_DimClinet" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Num_Client]"
+                      dataType="i4"
+                      name="Num_Client" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Nom_Client]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nom_Client" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Type_Client]"
+                      dataType="wstr"
+                      length="255"
+                      name="Type_Client" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Secteur_Client]"
+                      dataType="wstr"
+                      length="255"
+                      name="Secteur_Client" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Gouvernorat]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gouvernorat" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Creation de dim_Client\Dim Client.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creation de dim_Client\Dim Client.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creation de dim_Client\Dim Client.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creation de dim_Client\Dim Client.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Creation de dim_Client\Dimension à variation lente"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Dimension à variation lente;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;3"
+              description="Met à jour une dimension d'entrepôt de données (Data Warehouse) SQL Server Analysis Services. Mettez à jour les enregistrements de dimension qui sont déjà présents et insérez ceux qui ne le sont pas. Par exemple, mettez à jour la table DimProduct de la base de données OLAP AdventureWorksDW avec les données de la table Products dans la base de données OLTP AdventureWorks."
+              name="Dimension à variation lente"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SELECT utilisée pour créer un ensemble de lignes du schéma."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Gouvernorat], [Nom_Client], [Num_Client], [Secteur_Client], [Type_Client] FROM [dbo].[Dim_Client]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la clause WHERE dans l'instruction SELECT qui sélectionne la ligne actuelle parmi les lignes comportant des clés de travail identiques."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour d'attribut d'historique sont dirigées sur la sortie de la transformation pour les mises à jour d'attribut de validation."
+                  name="UpdateChangingAttributeHistory">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque les colonnes comportant des attributs fixes contiennent des modifications."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de la colonne pour le membre déduit."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour de membre déduit sont détectées."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque la recherche d'un enregistrement existant échoue."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie que toutes les lignes de l'entrée sont nouvelles ou que la transformation détecte le type de modification."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creation de dim_Client\Dimension à variation lente.Connections[LookupConnection]"
+                  connectionManagerID="{A7FD6C5B-ACDC-469C-A6E9-E8D453D606AE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale DWH]"
+                  description="Définit la connexion à utiliser pour faire des recherches dans la table de dimension"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+                  name="Entrée de dimension à variation lente">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[CODGVR]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODGVR"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Gouvernorat]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[CODGVR]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[NOMCLI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOMCLI"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Nom_Client]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[NOMCLI]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[NUMCPT]"
+                      cachedDataType="i4"
+                      cachedName="NUMCPT"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Num_Client]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[NUMCPT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[SECTEUR_CLIENT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SECTEUR_CLIENT"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Secteur_Client]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[SECTEUR_CLIENT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[TYPE_CLIENT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TYPE_CLIENT"
+                      externalMetadataColumnId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Type_Client]"
+                      lineageId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB].Columns[TYPE_CLIENT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Gouvernorat]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gouvernorat" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Nom_Client]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nom_Client" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Num_Client]"
+                      dataType="i4"
+                      name="Num_Client" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Secteur_Client]"
+                      dataType="wstr"
+                      length="255"
+                      name="Secteur_Client" />
+                    <externalMetadataColumn
+                      refId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Type_Client]"
+                      dataType="wstr"
+                      length="255"
+                      name="Type_Client" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Creation de dim_Client\Dimension à variation lente.Outputs[Sortie inchangée]"
+                  description="Lignes inchangées"
+                  exclusionGroup="1"
+                  name="Sortie inchangée"
+                  synchronousInputId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creation de dim_Client\Dimension à variation lente.Outputs[Nouvelle sortie]"
+                  description="Nouvelles lignes"
+                  exclusionGroup="1"
+                  name="Nouvelle sortie"
+                  synchronousInputId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creation de dim_Client\Dimension à variation lente.Outputs[Sortie d'attribut fixe]"
+                  description="Lignes comportant des modifications dans les colonnes marquées FixedAttribute"
+                  exclusionGroup="1"
+                  name="Sortie d'attribut fixe"
+                  synchronousInputId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creation de dim_Client\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]"
+                  description="Ces lignes contiennent de nouvelles informations sur les modifications de colonnes ChangingAttribute (type 1)"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour d'attribut de validation"
+                  synchronousInputId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creation de dim_Client\Dimension à variation lente.Outputs[Sortie d'insertions d'attribut d'historique]"
+                  description="Les modifications sur HistoricalAttribute (type 2) apparaissent dans ces nouvelles lignes"
+                  exclusionGroup="2"
+                  name="Sortie d'insertions d'attribut d'historique"
+                  synchronousInputId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creation de dim_Client\Dimension à variation lente.Outputs[Sortie de mises à jour de membre déduit]"
+                  description="Information de mise à jour de ligne de dimension initiale non remplie"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour de membre déduit"
+                  synchronousInputId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Creation de dim_Client.Paths[Nouvelle sortie]"
+              endId="Package\Creation de dim_Client\Dim Client.Inputs[Entrée de destination OLE DB]"
+              name="Nouvelle sortie"
+              startId="Package\Creation de dim_Client\Dimension à variation lente.Outputs[Nouvelle sortie]" />
+            <path
+              refId="Package\Creation de dim_Client.Paths[Sortie de mises à jour d'attribut de validation]"
+              endId="Package\Creation de dim_Client\Commande OLE DB 1.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de mises à jour d'attribut de validation"
+              startId="Package\Creation de dim_Client\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]" />
+            <path
+              refId="Package\Creation de dim_Client.Paths[Sortie de mises à jour de membre déduit]"
+              endId="Package\Creation de dim_Client\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de mises à jour de membre déduit"
+              startId="Package\Creation de dim_Client\Dimension à variation lente.Outputs[Sortie de mises à jour de membre déduit]" />
+            <path
+              refId="Package\Creation de dim_Client.Paths[Sortie de source OLE DB]"
+              endId="Package\Creation de dim_Client\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+              name="Sortie de source OLE DB"
+              startId="Package\Creation de dim_Client\Client_ODS.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Creation de dim_Client"
+          TopLeft="20,69" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Creation de dim_Client">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Creation de dim_Client\Dimension à variation lente"
+          TopLeft="325.888888888889,137.5" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Creation de dim_Client\Commande OLE DB 1"
+          TopLeft="614.111111111111,267.277777777778" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Creation de dim_Client\Client_ODS"
+          TopLeft="362.277777777778,43.2777777777777" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Creation de dim_Client\Commande OLE DB"
+          TopLeft="340.166666666667,295.055555555555" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Creation de dim_Client\Dim Client"
+          TopLeft="92.1666666666667,275.055555555556" />
+        <EdgeLayout
+          Id="Package\Creation de dim_Client.Paths[Nouvelle sortie]"
+          TopLeft="380.888888888889,179.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-223.722222222222,95.555555555556"
+              Start="0,0"
+              End="-223.722222222222,88.055555555556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.6432022084198" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.6432022084198"
+                    Point2="0,32.6432022084198"
+                    Point3="-4,32.6432022084198" />
+                  <mssgle:LineSegment
+                    End="-219.722222222222,32.6432022084198" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-219.722222222222,32.6432022084198"
+                    Point2="-223.722222222222,32.6432022084198"
+                    Point3="-223.722222222222,36.6432022084198" />
+                  <mssgle:LineSegment
+                    End="-223.722222222222,88.055555555556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-144.997458767361,37.6432022084198,66.2726953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Creation de dim_Client.Paths[Sortie de source OLE DB]"
+          TopLeft="431.333333333333,85.2777777777777">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.2222222222222"
+              Start="0,0"
+              End="0,44.7222222222222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.7222222222222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Creation de dim_Client.Paths[Sortie de mises à jour de membre déduit]"
+          TopLeft="430.777777777778,179.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,115.555555555556"
+              Start="0,0"
+              End="0,108.055555555556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,108.055555555556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.06205078125,47.9032660590278,182.1241015625,12.2490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Creation de dim_Client.Paths[Sortie de mises à jour d'attribut de validation]"
+          TopLeft="482.888888888889,179.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="225.222222222222,87.7777777777777"
+              Start="0,0"
+              End="225.222222222222,80.2777777777777">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9861973775017" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9861973775017"
+                    Point2="0,29.9861973775017"
+                    Point3="4,29.9861973775017" />
+                  <mssgle:LineSegment
+                    End="221.222222222222,29.9861973775017" />
+                  <mssgle:CubicBezierSegment
+                    Point1="221.222222222222,29.9861973775017"
+                    Point2="225.222222222222,29.9861973775017"
+                    Point3="225.222222222222,33.9861973775017" />
+                  <mssgle:LineSegment
+                    End="225.222222222222,80.2777777777777" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="12.7785134548611,34.9861973775017,199.6651953125,12.2490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creation de dim_Client\Dimension à variation lente">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{A7FD6C5B-ACDC-469C-A6E9-E8D453D606AE}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_Client]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Client_ODS.Sorties[Sortie de source OLE DB].Colonnes[CODGVR]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Gouvernorat&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Client_ODS.Sorties[Sortie de source OLE DB].Colonnes[NOMCLI]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Nom_Client&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Client_ODS.Sorties[Sortie de source OLE DB].Colonnes[NUMCPT]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Num_Client&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Client_ODS.Sorties[Sortie de source OLE DB].Colonnes[SECTEUR_CLIENT]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Secteur_Client&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Client_ODS.Sorties[Sortie de source OLE DB].Colonnes[TYPE_CLIENT]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Type_Client&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Destination d'insertion&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Commande OLE DB&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Commande OLE DB 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creation de dim_Client\Client_ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

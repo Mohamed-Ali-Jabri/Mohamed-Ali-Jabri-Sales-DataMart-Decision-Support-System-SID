@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale DWH"
+  DTS:DTSID="{A7FD6C5B-ACDC-469C-A6E9-E8D453D606AE}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-Q1T925U\SQLEXPRESS;Initial Catalog=BI Commerciale DWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-BI Commerciale-{A7FD6C5B-ACDC-469C-A6E9-E8D453D606AE}DESKTOP-Q1T925U\SQLEXPRESS.BI Commerciale DWH;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,490 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/25/2025 4:21:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-Q1T925U"
+  DTS:CreatorName="DESKTOP-Q1T925U\Admin"
+  DTS:DTSID="{1BE22374-179F-4BD2-8909-CCFEEDB6C983}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{6AD53253-32B0-4156-B4DB-9D53E207F89B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Chargement de la table Loc_Produit_ODS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{B9BD4E29-867C-4AD6-A2D3-516F3827ACD3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chargement de la table Loc_Produit_ODS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Produit_ODS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Produit_ODS]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Connections[OleDbConnection]"
+                  connectionManagerID="{2EF0BFA0-01E9-49E4-8423-5EE29395EAD2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Inputs[Entrée de destination OLE DB].Columns[CODPRD]"
+                      cachedDataType="i4"
+                      cachedName="CODPRD"
+                      externalMetadataColumnId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODPRD]"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODPRD]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Inputs[Entrée de destination OLE DB].Columns[LIBPRD]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LIBPRD"
+                      externalMetadataColumnId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBPRD]"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[LIBPRD]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Inputs[Entrée de destination OLE DB].Columns[CATPRD]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CATPRD"
+                      externalMetadataColumnId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CATPRD]"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CATPRD]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODPRD]"
+                      dataType="i4"
+                      name="CODPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBPRD]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CATPRD]"
+                      dataType="wstr"
+                      length="255"
+                      name="CATPRD" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Vente_ODS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Vente_ODS]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Connections[OleDbConnection]"
+                  connectionManagerID="{2EF0BFA0-01E9-49E4-8423-5EE29395EAD2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODPRD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODPRD]"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODPRD]"
+                      name="CODPRD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[LIBPRD]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBPRD]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[LIBPRD]"
+                      name="LIBPRD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CATPRD]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CATPRD]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CATPRD]"
+                      name="CATPRD"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NUMCPT]"
+                      dataType="i4"
+                      name="NUMCPT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NOMCLI]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMCLI" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODPRD]"
+                      dataType="i4"
+                      name="CODPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBPRD]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CATPRD]"
+                      dataType="wstr"
+                      length="255"
+                      name="CATPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODEMB]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODEMB" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[QTEPRD]"
+                      dataType="i4"
+                      name="QTEPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[MNTHT]"
+                      dataType="i4"
+                      name="MNTHT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[TYPOPE]"
+                      dataType="wstr"
+                      length="255"
+                      name="TYPOPE" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[PERIODE]"
+                      dataType="i4"
+                      name="PERIODE" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODAME]"
+                      dataType="i4"
+                      name="CODAME" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBAME" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODDPO]"
+                      dataType="i4"
+                      name="CODDPO" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NOMDPO]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMDPO" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODGVR]"
+                      dataType="i4"
+                      name="CODGVR" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBGVR]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBGVR" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODLOC]"
+                      dataType="i4"
+                      name="CODLOC" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBLOC]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBLOC" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[Mois]"
+                      dataType="i4"
+                      name="Mois" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[Annee]"
+                      dataType="i4"
+                      name="Annee" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODPRD]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODPRD]"
+                      name="CODPRD" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[LIBPRD]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[LIBPRD]"
+                      name="LIBPRD" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CATPRD]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CATPRD]"
+                      name="CATPRD" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Chargement de la table Loc_Produit_ODS.Paths[Sortie de source OLE DB]"
+              endId="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="285,42"
+          Id="Package\Chargement de la table Loc_Produit_ODS"
+          TopLeft="192,120" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Chargement de la table Loc_Produit_ODS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS"
+          TopLeft="149,38" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS"
+          TopLeft="149,176" />
+        <EdgeLayout
+          Id="Package\Chargement de la table Loc_Produit_ODS.Paths[Sortie de source OLE DB]"
+          TopLeft="219.5,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,96"
+              Start="0,0"
+              End="0,88.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement de la table Loc_Produit_ODS\Produit_ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement de la table Loc_Produit_ODS\Vente_ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

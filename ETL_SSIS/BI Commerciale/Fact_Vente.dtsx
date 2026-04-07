@@ -1,0 +1,1442 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/25/2025 5:25:24 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-Q1T925U"
+  DTS:CreatorName="DESKTOP-Q1T925U\Admin"
+  DTS:DTSID="{D0E93612-AF02-454B-9EEC-830FAA2B64EF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{4F94F23C-106B-44C5-BB20-FD5EEBDA2E4B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Creer Fact"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{F0913C2F-D490-4B61-BE4E-7A0A51CB289D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Creer Fact"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Creer Fact\Fact_Vente"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Fact_Vente"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Fact_Vente]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creer Fact\Fact_Vente.Connections[OleDbConnection]"
+                  connectionManagerID="{A7FD6C5B-ACDC-469C-A6E9-E8D453D606AE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].Columns[QTEPRD]"
+                      cachedDataType="i4"
+                      cachedName="QTEPRD"
+                      externalMetadataColumnId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].ExternalColumns[QTEPRD]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[QTEPRD]" />
+                    <inputColumn
+                      refId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].Columns[MNTHT]"
+                      cachedDataType="i4"
+                      cachedName="MNTHT"
+                      externalMetadataColumnId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].ExternalColumns[MNTHT]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[MNTHT]" />
+                    <inputColumn
+                      refId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].Columns[ID_DimClinet]"
+                      cachedDataType="i4"
+                      cachedName="ID_DimClinet"
+                      externalMetadataColumnId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_DimClinet]"
+                      lineageId="Package\Creer Fact\Recherche ID_DimClient.Outputs[Sortie de recherche avec correspondance].Columns[ID_DimClinet]" />
+                    <inputColumn
+                      refId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].Columns[ID_DimDate]"
+                      cachedDataType="i4"
+                      cachedName="ID_DimDate"
+                      externalMetadataColumnId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_DimDate]"
+                      lineageId="Package\Creer Fact\Recherche ID_DimDate.Outputs[Sortie de recherche avec correspondance].Columns[ID_DimDate]" />
+                    <inputColumn
+                      refId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].Columns[ID_DimProduit]"
+                      cachedDataType="i4"
+                      cachedName="ID_DimProduit"
+                      externalMetadataColumnId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_DimProduit]"
+                      lineageId="Package\Creer Fact\Recherche ID_DimProduit.Outputs[Sortie de recherche avec correspondance].Columns[ID_DimProduit]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].ExternalColumns[QTEPRD]"
+                      dataType="i4"
+                      name="QTEPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].ExternalColumns[MNTHT]"
+                      dataType="i4"
+                      name="MNTHT" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_DimClinet]"
+                      dataType="i4"
+                      name="ID_DimClinet" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_DimDate]"
+                      dataType="i4"
+                      name="ID_DimDate" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_DimProduit]"
+                      dataType="i4"
+                      name="ID_DimProduit" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Creer Fact\Fact_Vente.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creer Fact\Fact_Vente.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Fact_Vente.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Fact_Vente.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Fact_Vente.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Creer Fact\Recherche ID_DimClient"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche ID_DimClient"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Client]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Client]) [refTable]
+where [refTable].[Num_Client] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_DimClinet" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Num_Client" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nom_Client" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Type_Client" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Secteur_Client" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Gouvernorat" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[NUMCPT]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creer Fact\Recherche ID_DimClient.Connections[OleDbConnection]"
+                  connectionManagerID="{A7FD6C5B-ACDC-469C-A6E9-E8D453D606AE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale DWH]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Creer Fact\Recherche ID_DimClient.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Creer Fact\Recherche ID_DimClient.Inputs[Entrée de recherche].Columns[NUMCPT]"
+                      cachedDataType="i4"
+                      cachedName="NUMCPT"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[NUMCPT]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Num_Client</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Creer Fact\Recherche ID_DimClient.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Creer Fact\Recherche ID_DimClient.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creer Fact\Recherche ID_DimClient.Outputs[Sortie de recherche avec correspondance].Columns[ID_DimClinet]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Creer Fact\Recherche ID_DimClient.Outputs[Sortie de recherche avec correspondance].Columns[ID_DimClinet]"
+                      name="ID_DimClinet"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">ID_DimClinet</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creer Fact\Recherche ID_DimClient.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Creer Fact\Recherche ID_DimClient.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creer Fact\Recherche ID_DimClient.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Creer Fact\Recherche ID_DimClient.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creer Fact\Recherche ID_DimClient.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Recherche ID_DimClient.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Recherche ID_DimClient.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Recherche ID_DimClient.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Creer Fact\Recherche ID_DimDate"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche ID_DimDate"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Date]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Date]) [refTable]
+where [refTable].[PERIODE] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_DimDate" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Mois" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annee" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PERIODE" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[PERIODE]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creer Fact\Recherche ID_DimDate.Connections[OleDbConnection]"
+                  connectionManagerID="{A7FD6C5B-ACDC-469C-A6E9-E8D453D606AE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale DWH]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Creer Fact\Recherche ID_DimDate.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Creer Fact\Recherche ID_DimDate.Inputs[Entrée de recherche].Columns[PERIODE]"
+                      cachedDataType="i4"
+                      cachedName="PERIODE"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[PERIODE]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">PERIODE</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Creer Fact\Recherche ID_DimDate.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Creer Fact\Recherche ID_DimDate.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creer Fact\Recherche ID_DimDate.Outputs[Sortie de recherche avec correspondance].Columns[ID_DimDate]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Creer Fact\Recherche ID_DimDate.Outputs[Sortie de recherche avec correspondance].Columns[ID_DimDate]"
+                      name="ID_DimDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">ID_DimDate</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creer Fact\Recherche ID_DimDate.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Creer Fact\Recherche ID_DimDate.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creer Fact\Recherche ID_DimDate.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Creer Fact\Recherche ID_DimDate.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creer Fact\Recherche ID_DimDate.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Recherche ID_DimDate.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Recherche ID_DimDate.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Recherche ID_DimDate.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Creer Fact\Recherche ID_DimProduit"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche ID_DimProduit"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Produit]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Produit]) [refTable]
+where [refTable].[Code_Produit] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_DimProduit" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Code_Produit" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Libelle _Produit" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Categorie_Produit" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODPRD]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creer Fact\Recherche ID_DimProduit.Connections[OleDbConnection]"
+                  connectionManagerID="{A7FD6C5B-ACDC-469C-A6E9-E8D453D606AE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale DWH]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Creer Fact\Recherche ID_DimProduit.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Creer Fact\Recherche ID_DimProduit.Inputs[Entrée de recherche].Columns[CODPRD]"
+                      cachedDataType="i4"
+                      cachedName="CODPRD"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODPRD]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Code_Produit</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Creer Fact\Recherche ID_DimProduit.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Creer Fact\Recherche ID_DimProduit.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creer Fact\Recherche ID_DimProduit.Outputs[Sortie de recherche avec correspondance].Columns[ID_DimProduit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Creer Fact\Recherche ID_DimProduit.Outputs[Sortie de recherche avec correspondance].Columns[ID_DimProduit]"
+                      name="ID_DimProduit"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">ID_DimProduit</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creer Fact\Recherche ID_DimProduit.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Creer Fact\Recherche ID_DimProduit.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Creer Fact\Recherche ID_DimProduit.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Creer Fact\Recherche ID_DimProduit.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creer Fact\Recherche ID_DimProduit.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Recherche ID_DimProduit.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Recherche ID_DimProduit.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Recherche ID_DimProduit.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Creer Fact\Vente_ODS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Vente_ODS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Vente_ODS]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creer Fact\Vente_ODS.Connections[OleDbConnection]"
+                  connectionManagerID="{2EF0BFA0-01E9-49E4-8423-5EE29395EAD2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[QTEPRD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[QTEPRD]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[QTEPRD]"
+                      name="QTEPRD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[MNTHT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[MNTHT]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[MNTHT]"
+                      name="MNTHT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[NUMCPT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NUMCPT]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[NUMCPT]"
+                      name="NUMCPT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[NOMCLI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NOMCLI]"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[NOMCLI]"
+                      name="NOMCLI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODPRD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODPRD]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODPRD]"
+                      name="CODPRD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[LIBPRD]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBPRD]"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[LIBPRD]"
+                      name="LIBPRD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CATPRD]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CATPRD]"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CATPRD]"
+                      name="CATPRD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODEMB]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODEMB]"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODEMB]"
+                      name="CODEMB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[TYPOPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[TYPOPE]"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[TYPOPE]"
+                      name="TYPOPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[PERIODE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[PERIODE]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[PERIODE]"
+                      name="PERIODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODAME]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODAME]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODAME]"
+                      name="CODAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[LIBAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBAME]"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[LIBAME]"
+                      name="LIBAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODDPO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODDPO]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODDPO]"
+                      name="CODDPO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[NOMDPO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NOMDPO]"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[NOMDPO]"
+                      name="NOMDPO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODGVR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODGVR]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODGVR]"
+                      name="CODGVR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[LIBGVR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBGVR]"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[LIBGVR]"
+                      name="LIBGVR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODLOC]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODLOC]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[CODLOC]"
+                      name="CODLOC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[LIBLOC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBLOC]"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[LIBLOC]"
+                      name="LIBLOC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[Mois]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[Mois]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[Mois]"
+                      name="Mois"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[Annee]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[Annee]"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].Columns[Annee]"
+                      name="Annee"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NUMCPT]"
+                      dataType="i4"
+                      name="NUMCPT" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NOMCLI]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMCLI" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODPRD]"
+                      dataType="i4"
+                      name="CODPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBPRD]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CATPRD]"
+                      dataType="wstr"
+                      length="255"
+                      name="CATPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODEMB]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODEMB" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[QTEPRD]"
+                      dataType="i4"
+                      name="QTEPRD" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[MNTHT]"
+                      dataType="i4"
+                      name="MNTHT" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[TYPOPE]"
+                      dataType="wstr"
+                      length="255"
+                      name="TYPOPE" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[PERIODE]"
+                      dataType="i4"
+                      name="PERIODE" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODAME]"
+                      dataType="i4"
+                      name="CODAME" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBAME" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODDPO]"
+                      dataType="i4"
+                      name="CODDPO" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[NOMDPO]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMDPO" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODGVR]"
+                      dataType="i4"
+                      name="CODGVR" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBGVR]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBGVR" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CODLOC]"
+                      dataType="i4"
+                      name="CODLOC" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[LIBLOC]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIBLOC" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[Mois]"
+                      dataType="i4"
+                      name="Mois" />
+                    <externalMetadataColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[Annee]"
+                      dataType="i4"
+                      name="Annee" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[QTEPRD]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[QTEPRD]"
+                      name="QTEPRD" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[MNTHT]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[MNTHT]"
+                      name="MNTHT" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[NUMCPT]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[NUMCPT]"
+                      name="NUMCPT" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[NOMCLI]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[NOMCLI]"
+                      name="NOMCLI" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODPRD]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODPRD]"
+                      name="CODPRD" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[LIBPRD]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[LIBPRD]"
+                      name="LIBPRD" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CATPRD]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CATPRD]"
+                      name="CATPRD" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODEMB]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODEMB]"
+                      name="CODEMB" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[TYPOPE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[TYPOPE]"
+                      name="TYPOPE" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[PERIODE]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[PERIODE]"
+                      name="PERIODE" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODAME]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODAME]"
+                      name="CODAME" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[LIBAME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[LIBAME]"
+                      name="LIBAME" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODDPO]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODDPO]"
+                      name="CODDPO" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[NOMDPO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[NOMDPO]"
+                      name="NOMDPO" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODGVR]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODGVR]"
+                      name="CODGVR" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[LIBGVR]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[LIBGVR]"
+                      name="LIBGVR" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODLOC]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CODLOC]"
+                      name="CODLOC" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[LIBLOC]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[LIBLOC]"
+                      name="LIBLOC" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[Mois]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[Mois]"
+                      name="Mois" />
+                    <outputColumn
+                      refId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[Annee]"
+                      dataType="i4"
+                      lineageId="Package\Creer Fact\Vente_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[Annee]"
+                      name="Annee" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Creer Fact.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\Creer Fact\Recherche ID_DimDate.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Creer Fact\Recherche ID_DimClient.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Creer Fact.Paths[Sortie de recherche avec correspondance1]"
+              endId="Package\Creer Fact\Recherche ID_DimProduit.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Creer Fact\Recherche ID_DimDate.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Creer Fact.Paths[Sortie de recherche avec correspondance2]"
+              endId="Package\Creer Fact\Fact_Vente.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Creer Fact\Recherche ID_DimProduit.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Creer Fact.Paths[Sortie de source OLE DB]"
+              endId="Package\Creer Fact\Recherche ID_DimClient.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\Creer Fact\Vente_ODS.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Creer Fact"
+          TopLeft="47,128" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Creer Fact">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Creer Fact\Recherche ID_DimClient"
+          TopLeft="141,132" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Creer Fact\Recherche ID_DimProduit"
+          TopLeft="275,281" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Creer Fact\Vente_ODS"
+          TopLeft="35,71" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Creer Fact\Recherche ID_DimDate"
+          TopLeft="218,206" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Creer Fact\Fact_Vente"
+          TopLeft="467,347" />
+        <EdgeLayout
+          Id="Package\Creer Fact.Paths[Sortie de recherche avec correspondance2]"
+          TopLeft="378.5,323">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156,24"
+              Start="0,0"
+              End="156,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8"
+                    Point2="0,12"
+                    Point3="4,12" />
+                  <mssgle:LineSegment
+                    End="152,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152,12"
+                    Point2="156,12"
+                    Point3="156,16" />
+                  <mssgle:LineSegment
+                    End="156,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.67701171875,17,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Creer Fact.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="315.5,248">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63,33"
+              Start="0,0"
+              End="63,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="4,16.5" />
+                  <mssgle:LineSegment
+                    End="59,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59,16.5"
+                    Point2="63,16.5"
+                    Point3="63,20.5" />
+                  <mssgle:LineSegment
+                    End="63,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-60.17701171875,21.5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Creer Fact.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="241,174">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74.5,32"
+              Start="0,0"
+              End="74.5,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="4,16" />
+                  <mssgle:LineSegment
+                    End="70.5,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70.5,16"
+                    Point2="74.5,16"
+                    Point3="74.5,20" />
+                  <mssgle:LineSegment
+                    End="74.5,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-54.42701171875,21,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Creer Fact.Paths[Sortie de source OLE DB]"
+          TopLeft="173,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68,40"
+              Start="0,0"
+              End="68,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="64,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64,0"
+                    Point2="68,0"
+                    Point3="68,4" />
+                  <mssgle:LineSegment
+                    End="68,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creer Fact\Vente_ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creer Fact\Recherche ID_DimDate">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Date]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creer Fact\Fact_Vente">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creer Fact\Recherche ID_DimClient">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Client]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creer Fact\Recherche ID_DimProduit">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Produit]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

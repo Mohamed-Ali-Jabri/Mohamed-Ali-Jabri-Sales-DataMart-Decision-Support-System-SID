@@ -1,0 +1,666 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/24/2025 7:46:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-Q1T925U"
+  DTS:CreatorName="DESKTOP-Q1T925U\Admin"
+  DTS:DTSID="{A0A9B06E-0AA3-4F75-B26C-F55062191DD5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{8A7B2F01-72C4-4A57-9953-2030DFEDED0A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{2BA6A3D8-0CAE-4BB3-B05C-D678392316E6}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Admin\Downloads\clients_pretraite.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{21C35E7A-CC4E-46B1-AAD9-B589AB108B69}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Admin\Downloads\clients_pretraite.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Chargement de la table Client_ODS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{AEC54368-B512-473C-901E-CAB12B513505}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chargement de la table Client_ODS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Chargement de la table Client_ODS\Client_exel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source Excel"
+              name="Client_exel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappage des paramètres de la commande SQL en variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de la table Client_ODS\Client_exel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel]"
+                  name="Sortie de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[NUMCPT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[NUMCPT]"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[NUMCPT]"
+                      name="NUMCPT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[NOMCLI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[NOMCLI]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[NOMCLI]"
+                      name="NOMCLI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[TYPE_CLIENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[TYPE_CLIENT]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[TYPE_CLIENT]"
+                      name="TYPE_CLIENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[SECTEUR_CLIENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[SECTEUR_CLIENT]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[SECTEUR_CLIENT]"
+                      name="SECTEUR_CLIENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[CONSOLIDATION_CLIENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[CONSOLIDATION_CLIENT]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[CONSOLIDATION_CLIENT]"
+                      name="CONSOLIDATION_CLIENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[CODAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[CODAME]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[CODAME]"
+                      name="CODAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[CODGVR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[CODGVR]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[CODGVR]"
+                      name="CODGVR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[SERVICE_TYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[SERVICE_TYPE]"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[SERVICE_TYPE]"
+                      name="SERVICE_TYPE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[NUMCPT]"
+                      dataType="r8"
+                      name="NUMCPT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[NOMCLI]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMCLI" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[TYPE_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      name="TYPE_CLIENT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[SECTEUR_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      name="SECTEUR_CLIENT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[CONSOLIDATION_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      name="CONSOLIDATION_CLIENT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[CODAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODAME" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[CODGVR]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODGVR" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].ExternalColumns[SERVICE_TYPE]"
+                      dataType="wstr"
+                      length="255"
+                      name="SERVICE_TYPE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[NUMCPT]"
+                      dataType="r8"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[NUMCPT]"
+                      name="NUMCPT" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[NOMCLI]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[NOMCLI]"
+                      name="NOMCLI" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[TYPE_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[TYPE_CLIENT]"
+                      name="TYPE_CLIENT" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[SECTEUR_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[SECTEUR_CLIENT]"
+                      name="SECTEUR_CLIENT" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[CONSOLIDATION_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[CONSOLIDATION_CLIENT]"
+                      name="CONSOLIDATION_CLIENT" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODAME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODAME]"
+                      name="CODAME" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODGVR]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[CODGVR]"
+                      name="CODGVR" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[SERVICE_TYPE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[SERVICE_TYPE]"
+                      name="SERVICE_TYPE" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de la table Client_ODS\Clinet_ODS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Clinet_ODS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Client_ods]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Connections[OleDbConnection]"
+                  connectionManagerID="{2EF0BFA0-01E9-49E4-8423-5EE29395EAD2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q1T925U_SQLEXPRESS.BI Commerciale ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].Columns[NUMCPT]"
+                      cachedDataType="r8"
+                      cachedName="NUMCPT"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[NUMCPT]"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[NUMCPT]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].Columns[NOMCLI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOMCLI"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[NOMCLI]"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[NOMCLI]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].Columns[TYPE_CLIENT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TYPE_CLIENT"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[TYPE_CLIENT]"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[TYPE_CLIENT]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].Columns[SECTEUR_CLIENT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SECTEUR_CLIENT"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[SECTEUR_CLIENT]"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[SECTEUR_CLIENT]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].Columns[CONSOLIDATION_CLIENT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CONSOLIDATION_CLIENT"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CONSOLIDATION_CLIENT]"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[CONSOLIDATION_CLIENT]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].Columns[CODAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODAME"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODAME]"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[CODAME]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].Columns[CODGVR]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODGVR"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODGVR]"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[CODGVR]" />
+                    <inputColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].Columns[SERVICE_TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SERVICE_TYPE"
+                      externalMetadataColumnId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[SERVICE_TYPE]"
+                      lineageId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel].Columns[SERVICE_TYPE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[NUMCPT]"
+                      dataType="r8"
+                      name="NUMCPT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[NOMCLI]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMCLI" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[TYPE_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      name="TYPE_CLIENT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[SECTEUR_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      name="SECTEUR_CLIENT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CONSOLIDATION_CLIENT]"
+                      dataType="wstr"
+                      length="255"
+                      name="CONSOLIDATION_CLIENT" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODAME" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[CODGVR]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODGVR" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB].ExternalColumns[SERVICE_TYPE]"
+                      dataType="wstr"
+                      length="255"
+                      name="SERVICE_TYPE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Client_ODS\Clinet_ODS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de la table Client_ODS\Clinet_ODS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de la table Client_ODS\Clinet_ODS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Chargement de la table Client_ODS.Paths[Sortie de source Excel]"
+              endId="Package\Chargement de la table Client_ODS\Clinet_ODS.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source Excel"
+              startId="Package\Chargement de la table Client_ODS\Client_exel.Outputs[Sortie de source Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\vide la table Client_ODS"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{3653D2CD-B8DF-4193-A25F-4B63147016D9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="vide la table Client_ODS"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2EF0BFA0-01E9-49E4-8423-5EE29395EAD2}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[Client_ods];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{9671046A-2E09-4FB3-880B-949DCB98E992}"
+      DTS:From="Package\vide la table Client_ODS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\Chargement de la table Client_ODS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="254,42"
+          Id="Package\Chargement de la table Client_ODS"
+          TopLeft="71.1111111111111,41.4444444444444" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\vide la table Client_ODS"
+          TopLeft="92,216" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="194.805555555556,216">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-132.555555555556"
+              Start="0,0"
+              End="0,-125.055555555556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-125.055555555556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Chargement de la table Client_ODS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Chargement de la table Client_ODS\Clinet_ODS"
+          TopLeft="209,220.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Chargement de la table Client_ODS\Client_exel"
+          TopLeft="202,61.5" />
+        <EdgeLayout
+          Id="Package\Chargement de la table Client_ODS.Paths[Sortie de source Excel]"
+          TopLeft="269,103.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.5,117"
+              Start="0,0"
+              End="8.5,109.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.5"
+                    Point2="0,58.5"
+                    Point3="4,58.5" />
+                  <mssgle:LineSegment
+                    End="4.5,58.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.5,58.5"
+                    Point2="8.5,58.5"
+                    Point3="8.5,62.5" />
+                  <mssgle:LineSegment
+                    End="8.5,109.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement de la table Client_ODS\Client_exel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement de la table Client_ODS\Clinet_ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
