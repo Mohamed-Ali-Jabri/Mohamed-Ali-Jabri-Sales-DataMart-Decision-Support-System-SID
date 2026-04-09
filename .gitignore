@@ -1,0 +1,19 @@
+# Dossiers et fichiers générés par Visual Studio / SSIS
+.vs/
+*.user
+*.dtproj.user
+*.suo
+bin/
+obj/
+*.database
+
+# Fichiers temporaires Power BI
+*.pbix.lck
+
+# Fichiers systèmes temporaires
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Ignorer le dossier data
+data/
