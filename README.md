@@ -1,4 +1,4 @@
-# 📊 Sales DataMart – Decision Support System (SID)
+# 📊 Sales DataMart – Decision Support System ( SID )
 
 ## 📖 Présentation du projet
 Ce mini-projet a été réalisé dans le cadre du module **Systèmes d'Information Décisionnels (SID)**. 
