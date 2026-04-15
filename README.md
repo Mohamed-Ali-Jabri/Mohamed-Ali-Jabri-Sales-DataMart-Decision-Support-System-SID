@@ -74,5 +74,5 @@ Des tableaux de bord Power BI ont été développés afin d'analyser dynamiqueme
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 Ce mini-projet a permis de mettre en pratique les concepts fondamentaux de bout en bout des Systèmes d’Information Décisionnels : depuis les données sources, la modélisation dimensionnelle au niveau logique et physique, la tuyauterie de la donnée (ETL), jusqu'à l'exploration analytique et la Data Visualization pour l’aide à la décision.
